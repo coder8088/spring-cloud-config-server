@@ -1,0 +1,10 @@
+version '3'
+
+services:
+  config-server:
+    container_name: config-server
+    image: tedux/spring-cloud-config-server
+    ports:
+      - "5680:5680"
+    volumes:
+      - ./config:/config
