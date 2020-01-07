@@ -7,4 +7,4 @@ services:
     ports:
       - "5680:5680"
     volumes:
-      - ./config:/config
+      - ./config/application.yml:/config/application.yml

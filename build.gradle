@@ -1,0 +1,29 @@
+buildscript {
+  ext {
+    springBootVersion = '2.2.1.RELEASE'
+  }
+  repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+version = '0.2.0'
+
+repositories {
+  maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+}
+
+dependencies {
+  compile('org.springframework.cloud:spring-cloud-config-server:2.2.1.RELEASE') {
+    exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+  }
+  compile('org.springframework.boot:spring-boot-starter-undertow')
+}
+
