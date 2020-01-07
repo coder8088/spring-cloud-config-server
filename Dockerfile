@@ -3,6 +3,7 @@ MAINTAINER tedux <teduxi@outlook.com>
 
 COPY . /opt/cs/
 WORKDIR /opt/cs/
+USER root
 RUN gradle -g /var/cache/gradle --no-daemon --console plain -Dfile.encoding=UTF-8 build -x test
 
 FROM openjdk:11.0.2-jre-slim
